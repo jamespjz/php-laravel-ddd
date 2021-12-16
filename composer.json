@@ -1,6 +1,6 @@
 {
     "name": "jamespi/php-laravel-ddd",
-    "description": "laravel\u0000\u0000\u0000PHP DDD",
+    "description": "基于laravel框架的PHP DDD架构插件",
     "type": "library",
     "license": "MIT",
     "authors": [

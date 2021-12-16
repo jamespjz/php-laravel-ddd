@@ -1,0 +1,21 @@
+{
+    "name": "jamespi/php-laravel-ddd",
+    "description": "laravel\u0000\u0000\u0000PHP DDD",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pijianzhong",
+            "email": "jianzhongpi@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+		"php":">=7.0"
+	},
+	"autoload": {
+		"psr-4": {
+		  "Jamespi\\LaravelDdd\\": "src/"
+		}
+	}
+}

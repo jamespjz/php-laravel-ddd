@@ -10,6 +10,28 @@ Jamespi\LaravelDdd\LaravelDddServiceProvider::class,
 ```
 # 使用
 
+> 创建代码类文件命令  
+````
+# 接口层
+/**
+ * laravel-ddd:接口层command命令名称(由插件系统定义)
+ * TestLogic创建类文件名称(自定义)
+ * Facade：文件生成在接口层Interface的Facade目录下(根据系统生成目录名称填写)
+ */
+php artisan laravel-ddd TestLogic --project=Facade
+php artisan laravel-ddd TestDto --project=Dto
+php artisan laravel-ddd TestAssembler --project=Assembler
+
+# 应用层
+
+
+# 领域层
+
+# 基础层
+
+````
+
+
 ddd领域驱动模型思想架构图：  
 ![image](https://github.com/jamespjz/php-laravel-ddd/blob/main/ddd.jpg)
 

@@ -3,8 +3,8 @@ return [
     'ddd_contents' => [
         'Application',
         'Domain',
-        'Infrastructure',
-        'Interface'
+        'Infrastructures',
+        'Interfaces'
     ],
     'domain_son_Contents' => [
         'Entity',

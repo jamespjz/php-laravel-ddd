@@ -8,6 +8,7 @@
 
 namespace Jamespi\LaravelDdd;
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 class LaravelDddServiceProvider extends ServiceProvider
 {
@@ -35,16 +36,32 @@ class LaravelDddServiceProvider extends ServiceProvider
                     $domainPath = base_path() . '/app/' . $dddContent . '/' . $sonContent . '/';
                     is_dir($domainPath) or mkdir($domainPath, 0777, true);
                 }
-            } else if($dddContent == 'Interface'){
+            } else if($dddContent == 'Interfaces'){
                 $sonContents = $contents['interface_son_Contents'];
                 foreach ($sonContents as $sonContent){
                     $domainPath = base_path() . '/app/' . $dddContent . '/' . $sonContent . '/';
                     is_dir($domainPath) or mkdir($domainPath, 0777, true);
                 }
-            }else if($dddContent == 'Infrastructure'){
+            }else if($dddContent == 'Infrastructures'){
                 $domainPath = base_path() . '/app/' . $dddContent . '/';
                 is_dir($domainPath) or mkdir($domainPath, 0777, true);
             }
         }
+
+        $this->app->singleton('command.ddd', function ($app){
+            return $app['Jamespi\LaravelDdd\Commands\LaravelDddCommand'];
+        });
+        $this->commands('command.ddd');
+    }
+
+    /**
+     * 启动所有的应用服务。
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //自动调用命令生成
+//        Artisan::call('laravel-ddd TestLogic --project=Facade');
     }
 }

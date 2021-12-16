@@ -11,7 +11,7 @@ Jamespi\LaravelDdd\LaravelDddServiceProvider::class,
 # 使用
 
 ddd领域驱动模型思想架构图：  
-![image](https://github.com/jamespjz/PHP_DDD/blob/main/ddd.jpg)
+![image](https://github.com/jamespjz/php-laravel-ddd/blob/main/ddd.jpg)
 
 最终生成领域目录和文件如下图所示：
 ````

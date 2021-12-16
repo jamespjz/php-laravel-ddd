@@ -2,7 +2,7 @@
 基于laravel框架的PHP DDD架构插件
 # 安装
 ```
-composer require jamespi/php_ddd dev-master
+composer require jamespi/php-laravel-ddd dev-master
 ```
 在config/app.php中providers数组中增加ServiceProvider配置
 ```

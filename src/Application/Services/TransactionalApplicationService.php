@@ -6,7 +6,7 @@
  * Time: 18:01
  */
 
-namespace Jamespi\LaravelDdd\Domain\Services;
+namespace Jamespi\LaravelDdd\Application\Services;
 
 
 class TransactionalApplicationService implements ApplicationService

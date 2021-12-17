@@ -1,0 +1,39 @@
+<?php
+namespace DummyNamespace;
+
+use Jamespi\LaravelDdd\Application\Services\AppInterfaceService;
+use Jamespi\LaravelDdd\Infrastructures\Repository\InterfaceRepository;
+class DummyClass extends AppInterfaceService
+{
+    /**
+     * @var $repository
+     */
+    protected $repository;
+
+    public function __construct(InterfaceRepository $repository){
+        $this->repository = $repository;
+    }
+
+     /**
+      * 例子方法
+      * @param SignInUserRequest $request
+      * @return SignInUserResponse
+      * @throws UserAlreadyExistsException
+      */
+    public function execute($request = null){
+        $email = $request->email();
+        $password = $request->password();
+        $user = $this->repository->userOfEmail($email);
+        if (null !== $user) {
+            throw new UserAlreadyExistsException();
+        }
+        $user = new User(
+            $this->repository->nextIdentity(),
+            $email,
+            $password
+        );
+        $this->repository->persist($user);
+
+        return new SignInUserResponse($user);
+    }
+}

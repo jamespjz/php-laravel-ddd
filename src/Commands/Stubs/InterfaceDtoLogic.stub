@@ -1,8 +1,8 @@
 <?php
 namespace DummyNamespace;
 
-use Jamespi\Interface\InterfaceService;
-class DummyClass extends InterfaceService
+use Jamespi\LaravelDdd\Interfaces\InterfaceDtoService;
+class DummyClass extends InterfaceDtoService
 {
 
 }

@@ -11,7 +11,7 @@ namespace Jamespi\LaravelDdd\Interfaces;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\AbstractPaginator;
 use Jamespi\LaravelDdd\Infrastructures\Model\DddModel;
-abstract class InterfaceService
+abstract class InterfaceDtoService
 {
     /**
      * PO数据转换成DTO

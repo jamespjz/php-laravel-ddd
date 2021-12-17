@@ -4,7 +4,7 @@ namespace Jamespi\LaravelDdd\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class LaravelDddAppCommand extends GeneratorCommand
+class LaravelDddDomainCommand extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
@@ -36,22 +36,29 @@ class LaravelDddAppCommand extends GeneratorCommand
     protected function getStub()
     {
         $project_name = $this->option('project');
+        $file_name = $this->argument('name');
 
         switch ($project_name){
             case 'Services':
-                $url = __DIR__ . '/Stubs/AppServicesLogic.stub';
+                $fileInfo = file_get_contents(__DIR__ . '/Stubs/InterfaceFacadeLogic.stub');
                 break;
             case 'Dto':
-//                $url = __DIR__ . '/Stubs/AppDtoLogic.stub';
+                $fileInfo = file_get_contents(__DIR__ . '/Stubs/InterfaceDtoLogic.stub');
                 break;
             case 'Assembler':
-//                $url = __DIR__ . '/Stubs/AppAssemblerLogic.stub';
+                $fileInfo = file_get_contents(__DIR__ . '/Stubs/InterfaceAssemblerLogic.stub');
                 break;
             default:
-                $url = __DIR__ . '/Stubs/AppServicesLogic.stub';
+                $fileInfo = file_get_contents(__DIR__ . '/Stubs/InterfaceFacadeLogic.stub');
         }
-
-        return $url;
+        $serviceNew = "App\Interface\\".$project_name."\\".str_replace("Logic", "Service", $file_name);
+        $serviceOld = "App\Core\Services\TestService";
+        $fileInfo = str_replace($serviceOld, $serviceNew, $fileInfo);
+        $modelNew = "App\Interface\\".$project_name."\\Model\\".str_replace("Logic", "Model", $file_name);
+        $modelOld = "App\Core\Mode\TestCoreMode";
+        $fileInfo = str_replace($modelOld, $modelNew, $fileInfo);
+        file_put_contents(__DIR__ . '/Stubs/InterfaceFacadeLogic.stub', $fileInfo);
+        return __DIR__ . '/Stubs/InterfaceFacadeLogic.stub';
     }
 
     /**
@@ -64,6 +71,6 @@ class LaravelDddAppCommand extends GeneratorCommand
     {
         $project_name = $this->option('project');
 
-        return $rootNamespace.'\Application\\'.$project_name.'\\';
+        return $rootNamespace.'\Interface\\'.$project_name.'\\';
     }
 }

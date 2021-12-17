@@ -1,6 +1,6 @@
 <?php
 
-namespace Jamespi\LaravelDdd\Domain\Services;
+namespace Jamespi\LaravelDdd\Application\Services;
 
 /**
  * Interface TransactionalSession

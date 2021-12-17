@@ -1,7 +1,33 @@
 <?php
 namespace DummyNamespace;
 
-class DummyClass extends InterfaceService
+use Jamespi\LaravelDdd\Application\Services\TransactionalApplicationService;
+use Jamespi\LaravelDdd\Application\Services\AppServicesLogic;
+use Jamespi\LaravelDdd\Infrastructures\Application\Services\AdodbSession;
+class DummyClass
 {
+    protected $txSignInUserService;
 
+    public function __construct(){
+        $this->txSignInUserService = new TransactionalApplicationService(
+            new AppServicesLogic(
+                new articleModel() //文章model类 继承与InterfaceRepository
+            ),
+            new AdodbSession(new articleModel())
+        );
+    }
+
+    /**
+     * 例子方法
+     * @param DddModel $model
+     */
+    public function read(){
+        $response = $this->txSignInUserService->execute(
+                //DTO
+                new SignInUserRequest(
+                    'carlos.buenosvinos@gmail.com',
+                    'thisisnotasecretpassword'
+                )
+            );
+    }
 }

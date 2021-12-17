@@ -48,10 +48,14 @@ class LaravelDddServiceProvider extends ServiceProvider
             }
         }
 
-        $this->app->singleton('command.ddd', function ($app){
+        $this->app->singleton('command.ddd.interface', function ($app){
             return $app['Jamespi\LaravelDdd\Commands\LaravelDddCommand'];
         });
-        $this->commands('command.ddd');
+        $this->commands('command.ddd.interface');
+        $this->app->singleton('command.ddd.app', function ($app){
+            return $app['Jamespi\LaravelDdd\Commands\LaravelDddAppCommand'];
+        });
+        $this->commands('command.ddd.app');
     }
 
     /**

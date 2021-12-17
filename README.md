@@ -23,7 +23,7 @@ php artisan laravel-ddd TestDto --project=Dto
 php artisan laravel-ddd TestAssembler --project=Assembler
 
 # 应用层
-
+php artisan laravel-app-ddd AppServicesLogic --project=Services
 
 # 领域层
 

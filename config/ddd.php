@@ -9,13 +9,13 @@ return [
     'domain_son_Contents' => [
         'Entity',
         'Repository',
-        'Service'
+        'Services'
     ],
     'application_son_Contents' => [
         'Assembler',
         'Dto',
         'Event',
-        'Service'
+        'Services'
     ],
     'interface_son_Contents' => [
         'Assembler',

@@ -65,6 +65,6 @@ class LaravelDddCommand extends GeneratorCommand
     {
         $project_name = $this->option('project');
 
-        return $rootNamespace.'\Interface\\'.$project_name.'\\';
+        return $rootNamespace.'\Interfaces\\'.$project_name.'\\';
     }
 }

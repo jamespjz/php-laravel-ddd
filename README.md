@@ -8,6 +8,7 @@ composer require jamespi/php-laravel-ddd dev-master
 ```
 Jamespi\LaravelDdd\LaravelDddServiceProvider::class,
 ```
+访问首页后自动触发注册服务进行目录生成更新
 # 使用
 
 > 创建代码类文件命令  

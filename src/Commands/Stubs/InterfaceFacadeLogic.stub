@@ -2,7 +2,7 @@
 namespace DummyNamespace;
 
 use Jamespi\LaravelDdd\Application\Services\TransactionalApplicationService;
-use Jamespi\LaravelDdd\Application\Services\AppServicesLogic;
+use App\Application\Services\AppServicesLogic;
 use Jamespi\LaravelDdd\Infrastructures\Application\Services\AdodbSession;
 class DummyClass
 {
